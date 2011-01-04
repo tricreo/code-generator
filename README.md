@@ -26,12 +26,15 @@ $ codegen -h
 
 コード生成
 
-$ codegen -c config.properties -t template -o export -e F
+$ codegen -c config.properties -e F -t template -o export 
 
 -c は、設定ファイルへのパス。設定ファイルの形式はプロパティファイル形式と、JSON形式が使えます。
--t は、コード生成に使うテンプレートファイルを配置しているディレクトリへのパス。
--o は、コードを出力する先のパス。
+
 -e は、テンプレートエンジンの種類。FがFreeMarker, VがVelocity。
+
+-t は、コード生成に使うテンプレートファイルを配置しているディレクトリへのパス。テンプレートファイルはFreeMarker用がjava.ftl,Velocity用がjava.vtl。
+
+-o は、コードを出力する先のパス。
 
 
 License
