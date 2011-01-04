@@ -13,20 +13,24 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.model.reader.impl;
+package jp.tricreo.codegenerator.service;
+
+import jp.tricreo.codegenerator.CodeGenContext;
+import jp.tricreo.codegenerator.service.impl.CodeGenException;
 
 /**
- * モデルを読み込む形式を表す列挙型。
+ * コードを生成するためのストラテジ(戦略)。
  * 
  * @author j5ik2o
  */
-public enum ModelReadFormatType {
+public interface CodeGenStrategy {
+	
 	/**
-	 * プロパティファイル形式
+	 * コードを生成する。
+	 * 
+	 * @param context {@link CodeGenContext}
+	 * @throws CodeGenException コード生成に失敗した場合
 	 */
-	PROPERTIES,
-	/**
-	 * JSON形式
-	 */
-	JSON;
+	void generate(CodeGenContext context) throws CodeGenException;
+	
 }

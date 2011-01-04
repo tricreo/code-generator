@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.service.impl;
+package jp.tricreo.codegenerator.service.impl;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -21,8 +21,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.co.nikkeibp.software.codegen.CodeGenContext;
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
+import jp.tricreo.codegenerator.CodeGenContext;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;

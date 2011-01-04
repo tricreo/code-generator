@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.model.reader.impl;
+package jp.tricreo.codegenerator.model.reader.impl;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,9 +26,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
-import jp.co.nikkeibp.software.codegen.model.FieldMetaModel;
-import jp.co.nikkeibp.software.codegen.model.reader.ModelReadStrategy;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.FieldMetaModel;
+import jp.tricreo.codegenerator.model.reader.ModelReadStrategy;
 import net.arnx.jsonic.JSON;
 import net.arnx.jsonic.JSONException;
 

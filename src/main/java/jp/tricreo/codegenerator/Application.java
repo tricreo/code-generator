@@ -13,18 +13,18 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen;
+package jp.tricreo.codegenerator;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Collection;
 import java.util.HashSet;
 
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
-import jp.co.nikkeibp.software.codegen.model.reader.ModelReader;
-import jp.co.nikkeibp.software.codegen.model.reader.impl.ModelReadFormatType;
-import jp.co.nikkeibp.software.codegen.service.CodeGenService;
-import jp.co.nikkeibp.software.codegen.service.impl.TemplateEngineType;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.reader.ModelReader;
+import jp.tricreo.codegenerator.model.reader.impl.ModelReadFormatType;
+import jp.tricreo.codegenerator.service.CodeGenService;
+import jp.tricreo.codegenerator.service.impl.TemplateEngineType;
 
 import org.apache.commons.cli.BasicParser;
 import org.apache.commons.cli.CommandLine;

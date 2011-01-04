@@ -13,16 +13,16 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.model.reader;
+package jp.tricreo.codegenerator.model.reader;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
-import jp.co.nikkeibp.software.codegen.model.reader.impl.ModelReadFormatType;
-import jp.co.nikkeibp.software.codegen.model.reader.impl.ModelReadStrategyInJSON;
-import jp.co.nikkeibp.software.codegen.model.reader.impl.ModelReadStrategyInProperties;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.reader.impl.ModelReadFormatType;
+import jp.tricreo.codegenerator.model.reader.impl.ModelReadStrategyInJSON;
+import jp.tricreo.codegenerator.model.reader.impl.ModelReadStrategyInProperties;
 
 import org.apache.commons.lang.Validate;
 

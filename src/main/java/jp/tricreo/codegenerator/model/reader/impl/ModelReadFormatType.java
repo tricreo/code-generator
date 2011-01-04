@@ -13,26 +13,20 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.model.reader;
-
-import java.io.IOException;
-import java.util.Collection;
-
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
+package jp.tricreo.codegenerator.model.reader.impl;
 
 /**
- * モデルを読み込むためのストラテジ(戦略)。
+ * モデルを読み込む形式を表す列挙型。
  * 
  * @author j5ik2o
  */
-public interface ModelReadStrategy {
-	
+public enum ModelReadFormatType {
 	/**
-	 * モデルを読み込む。
-	 * 
-	 * @return {@link ClassMetaModel}のコレクション
-	 * @throws IOException モデルの読み込みに失敗した場合
+	 * プロパティファイル形式
 	 */
-	Collection<ClassMetaModel> readAll() throws IOException;
-	
+	PROPERTIES,
+	/**
+	 * JSON形式
+	 */
+	JSON;
 }

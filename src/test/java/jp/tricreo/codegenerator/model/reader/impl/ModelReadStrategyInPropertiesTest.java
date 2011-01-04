@@ -13,7 +13,7 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.model.reader.impl;
+package jp.tricreo.codegenerator.model.reader.impl;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -23,7 +23,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.reader.impl.ModelReadStrategyInProperties;
 
 import org.junit.Test;
 

@@ -13,11 +13,11 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen;
+package jp.tricreo.codegenerator;
 
 import java.io.File;
 
-import jp.co.nikkeibp.software.codegen.model.ClassMetaModel;
+import jp.tricreo.codegenerator.model.ClassMetaModel;
 
 public interface CodeGenContext {
 	

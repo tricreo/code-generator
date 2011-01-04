@@ -13,24 +13,26 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.service;
+package jp.tricreo.codegenerator.model.reader;
 
-import jp.co.nikkeibp.software.codegen.CodeGenContext;
-import jp.co.nikkeibp.software.codegen.service.impl.CodeGenException;
+import java.io.IOException;
+import java.util.Collection;
+
+import jp.tricreo.codegenerator.model.ClassMetaModel;
 
 /**
- * コードを生成するためのストラテジ(戦略)。
+ * モデルを読み込むためのストラテジ(戦略)。
  * 
  * @author j5ik2o
  */
-public interface CodeGenStrategy {
+public interface ModelReadStrategy {
 	
 	/**
-	 * コードを生成する。
+	 * モデルを読み込む。
 	 * 
-	 * @param context {@link CodeGenContext}
-	 * @throws CodeGenException コード生成に失敗した場合
+	 * @return {@link ClassMetaModel}のコレクション
+	 * @throws IOException モデルの読み込みに失敗した場合
 	 */
-	void generate(CodeGenContext context) throws CodeGenException;
+	Collection<ClassMetaModel> readAll() throws IOException;
 	
 }

@@ -13,9 +13,9 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.service.impl;
+package jp.tricreo.codegenerator.service.impl;
 
-import jp.co.nikkeibp.software.codegen.service.CodeGenStrategy;
+import jp.tricreo.codegenerator.service.CodeGenStrategy;
 
 import org.apache.commons.lang.Validate;
 

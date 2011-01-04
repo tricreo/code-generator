@@ -13,11 +13,11 @@
  * either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-package jp.co.nikkeibp.software.codegen.service;
+package jp.tricreo.codegenerator.service;
 
-import jp.co.nikkeibp.software.codegen.CodeGenContext;
-import jp.co.nikkeibp.software.codegen.service.impl.CodeGenException;
-import jp.co.nikkeibp.software.codegen.service.impl.TemplateEngineType;
+import jp.tricreo.codegenerator.CodeGenContext;
+import jp.tricreo.codegenerator.service.impl.CodeGenException;
+import jp.tricreo.codegenerator.service.impl.TemplateEngineType;
 
 import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
