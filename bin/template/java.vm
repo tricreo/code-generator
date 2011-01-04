@@ -1,0 +1,15 @@
+#if (${classMetaModel.packageName})
+package ${classMetaModel.packageName};
+#end
+
+public class ${classMetaModel.className} {
+#foreach( $f in ${classMetaModel.fieldMetaModels} )
+	private ${f.typeName} ${f.fieldName};
+	public void set$displayTool.capitalize(${f.fieldName})(${f.typeName} ${f.fieldName}){
+		this.${f.fieldName} = ${f.fieldName};
+	}
+ 	public ${f.typeName} get$displayTool.capitalize(${f.fieldName})(){
+		return ${f.fieldName};
+	}  	    
+#end
+}

@@ -1,0 +1,30 @@
+[
+	{
+		"className": "Department",
+		"packageName": "jp.nikkeibp.software.sample.beans",
+		"fields": [
+			{
+				"fieldName": "name",
+				"typeName": "java.lang.String"
+			}
+		]
+	},
+	{
+		"className": "Employee",
+		"packageName": "jp.nikkeibp.software.sample.beans",
+		"fields": [
+			{
+				"fieldName": "department",
+				"typeName": "jp.nikkeibp.software.sample.beans.Department"
+			},
+			{
+				"fieldName": "name",
+				"typeName": "java.lang.String"
+			},
+			{
+				"fieldName": "manager",
+				"typeName": "java.lang.Boolean"
+			}
+		]
+	}
+]
