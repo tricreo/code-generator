@@ -1,6 +1,10 @@
 コードジェネレータ
 ==================
 
+できること
+-----------
+設定に基づきJavaBeansのソースコードを自動生成すること。
+
 ビルド方法
 -----------
 ビルドに必要な環境: JDK 1.5以上, Maven2 
@@ -17,10 +21,17 @@ $ cp target/code-generator-0.0.1.jar bin/lib
 $ cd bin
 
 ヘルプの表示
+
 $ codegen -h 
 
 コード生成
+
 $ codegen -c config.properties -t template -o export -e F
+
+-c は、設定ファイルへのパス。設定ファイルの形式はプロパティファイル形式と、JSON形式が使えます。
+-t は、コード生成に使うテンプレートファイルを配置しているディレクトリへのパス。
+-o は、コードを出力する先のパス。
+-e は、テンプレートエンジンの種類。FがFreeMarker, VがVelocity。
 
 
 License
