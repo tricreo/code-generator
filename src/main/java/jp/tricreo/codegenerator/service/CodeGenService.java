@@ -36,7 +36,6 @@ public class CodeGenService {
 	
 
 	/**
-	 * 
 	 * インスタンスを生成する。
 	 * 
 	 * @param codeGenStrategy {@link CodeGenStrategy}

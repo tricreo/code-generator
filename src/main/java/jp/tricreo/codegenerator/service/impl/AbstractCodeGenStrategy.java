@@ -23,17 +23,29 @@ import jp.tricreo.codegenerator.service.CodeGenStrategy;
 
 import org.apache.commons.lang.Validate;
 
+/**
+ * {@link CodeGenStrategy}の抽象クラス。
+ * 
+ * @author j5ik2o
+ */
 public abstract class AbstractCodeGenStrategy implements CodeGenStrategy {
 	
-	protected File getActualExportDir(CodeGenContext context, ClassMetaModel cm) {
-		Validate.notNull(context);
-		Validate.notNull(cm);
-		File actualExportDir = context.getExportDir();
-		if (cm.getPackageName() != null) {
-			String packageDir = cm.getPackageName().replaceAll("\\.", "/");
-			actualExportDir = new File(context.getExportDir(), packageDir);
+	/**
+	 * 指定した{@link ClassMetaModel}から実際の出力ディレクトリを取得する。 
+	 * 
+	 * @param codeGenContext {@link CodeGenContext} 
+	 * @param classMetaModel {@link ClassMetaModel}
+	 * @return 出力ディレクトリ。nullを返してはならない。
+	 */
+	protected File getExportClassDir(CodeGenContext codeGenContext, ClassMetaModel classMetaModel) {
+		Validate.notNull(codeGenContext);
+		Validate.notNull(classMetaModel);
+		File exportDir = codeGenContext.getExportDir();
+		if (classMetaModel.getPackageName() != null) {
+			String packageDir = classMetaModel.getPackageName().replaceAll("\\.", "/");
+			exportDir = new File(codeGenContext.getExportDir(), packageDir);
 		}
-		return actualExportDir;
+		return exportDir;
 	}
 	
 }

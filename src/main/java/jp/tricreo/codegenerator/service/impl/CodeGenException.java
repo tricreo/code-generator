@@ -15,6 +15,11 @@
  */
 package jp.tricreo.codegenerator.service.impl;
 
+/**
+ * コード生成に失敗した場合にスローされる例外。
+ * 
+ * @author j5ik2o
+ */
 @SuppressWarnings("serial")
 public class CodeGenException extends Exception {
 	

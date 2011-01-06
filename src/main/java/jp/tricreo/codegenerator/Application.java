@@ -35,11 +35,21 @@ import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * アプリケーションクラス。
+ * 
+ * @author j5ik2o
+ */
 public class Application implements CodeGenContext {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 	
 
+	/**
+	 * プログラムのエントリポイント。
+	 * 
+	 * @param args プログラム引数
+	 */
 	public static void main(String[] args) {
 		System.exit(new Application().run(args));
 	}
@@ -65,7 +75,7 @@ public class Application implements CodeGenContext {
 	
 	@Override
 	public Collection<ClassMetaModel> getClassMetaModels() {
-		return classMetaModels;
+		return new HashSet<ClassMetaModel>(classMetaModels);
 	}
 	
 	@Override
@@ -89,6 +99,7 @@ public class Application implements CodeGenContext {
 		return templateDir;
 	}
 	
+	// プログラム引数を解析する
 	private boolean parseCommandLine(String[] args) throws ParseException, FileNotFoundException {
 		Options options = new Options();
 		options.addOption("h", "help", false, "help");
@@ -130,6 +141,12 @@ public class Application implements CodeGenContext {
 		return true;
 	}
 	
+	/**
+	 * プログラムを実行する。
+	 * 
+	 * @param args プログラム引数
+	 * @return プログラムが正常に終了した場合は0,異常終了の場合は1
+	 */
 	public int run(String[] args) {
 		try {
 			if (parseCommandLine(args)) {

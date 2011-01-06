@@ -19,6 +19,12 @@ import jp.tricreo.codegenerator.service.CodeGenStrategy;
 
 import org.apache.commons.lang.Validate;
 
+/**
+ * テンプレートエンジンの種類を表す列挙型。
+ * <p>標準でサポートしているテンプレートエンジンの種類を表す列挙型。</p>
+ * 
+ * @author j5ik2o
+ */
 public enum TemplateEngineType {
 	
 	/** FreeMarker */
@@ -31,6 +37,12 @@ public enum TemplateEngineType {
 	private final String typeName;
 	
 
+	/**
+	 * インスタンスを生成する。
+	 * 
+	 * @param codeGenStrategy {@link CodeGenStrategy}
+	 * @param typeName テンプレートエンジンの名前
+	 */
 	TemplateEngineType(CodeGenStrategy codeGenStrategy, String typeName) {
 		Validate.notNull(codeGenStrategy);
 		Validate.notNull(typeName);
@@ -38,6 +50,11 @@ public enum TemplateEngineType {
 		this.typeName = typeName;
 	}
 	
+	/**
+	 * この列挙型を{@link CodeGenStrategy}に変換する。
+	 * 
+	 * @return {@link CodeGenStrategy}
+	 */
 	public CodeGenStrategy toCodeGenStrategy() {
 		return codeGenStrategy;
 	}

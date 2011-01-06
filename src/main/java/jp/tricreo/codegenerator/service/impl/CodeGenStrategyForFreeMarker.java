@@ -23,6 +23,7 @@ import java.util.Map;
 
 import jp.tricreo.codegenerator.CodeGenContext;
 import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.service.CodeGenStrategy;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -32,6 +33,11 @@ import org.apache.commons.lang.Validate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * FreeMarkerのための{@link CodeGenStrategy}の実装。
+ * 
+ * @author j5ik2o
+ */
 public class CodeGenStrategyForFreeMarker extends AbstractCodeGenStrategy {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CodeGenStrategyForFreeMarker.class);
@@ -52,7 +58,7 @@ public class CodeGenStrategyForFreeMarker extends AbstractCodeGenStrategy {
 					Map<String, Object> rootMap = new HashMap<String, Object>();
 					rootMap.put("classMetaModel", cm);
 					
-					File actualExportDir = getActualExportDir(context, cm);
+					File actualExportDir = getExportClassDir(context, cm);
 					actualExportDir.mkdirs();
 					
 					fw = new FileWriter(new File(actualExportDir, cm.getClassName() + ".java"));

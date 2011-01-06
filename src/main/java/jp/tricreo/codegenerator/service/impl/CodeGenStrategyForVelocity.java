@@ -21,6 +21,7 @@ import java.util.Properties;
 
 import jp.tricreo.codegenerator.CodeGenContext;
 import jp.tricreo.codegenerator.model.ClassMetaModel;
+import jp.tricreo.codegenerator.service.CodeGenStrategy;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.Validate;
@@ -31,6 +32,11 @@ import org.apache.velocity.tools.generic.DisplayTool;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Velocityのための{@link CodeGenStrategy}の実装。
+ * 
+ * @author j5ik2o
+ */
 public class CodeGenStrategyForVelocity extends AbstractCodeGenStrategy {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CodeGenStrategyForVelocity.class);
@@ -53,7 +59,7 @@ public class CodeGenStrategyForVelocity extends AbstractCodeGenStrategy {
 					velocityContext.put("displayTool", displayTool);
 					velocityContext.put("classMetaModel", cm);
 					
-					File actualExportDir = getActualExportDir(context, cm);
+					File actualExportDir = getExportClassDir(context, cm);
 					actualExportDir.mkdirs();
 					
 					fw = new FileWriter(new File(actualExportDir, cm.getClassName() + ".java"));
