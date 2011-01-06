@@ -33,7 +33,7 @@ public class CodeGenException extends Exception {
 	/**
 	 * インスタンスを生成する。
 	 * 
-	 * @param message
+	 * @param message メッセージ
 	 */
 	public CodeGenException(String message) {
 		super(message);
@@ -42,8 +42,8 @@ public class CodeGenException extends Exception {
 	/**
 	 * インスタンスを生成する。
 	 * 
-	 * @param message
-	 * @param cause
+	 * @param message メッセージ
+	 * @param cause 起因
 	 */
 	public CodeGenException(String message, Throwable cause) {
 		super(message, cause);
@@ -52,7 +52,7 @@ public class CodeGenException extends Exception {
 	/**
 	 * インスタンスを生成する。
 	 * 
-	 * @param cause
+	 * @param cause 起因
 	 */
 	public CodeGenException(Throwable cause) {
 		super(cause);

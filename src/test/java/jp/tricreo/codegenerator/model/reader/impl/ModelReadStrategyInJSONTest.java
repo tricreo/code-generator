@@ -34,8 +34,13 @@ import org.junit.Test;
  */
 public class ModelReadStrategyInJSONTest {
 	
+	/**
+	 * リポジトリからすべてのエンティティが読み込めること
+	 * 
+	 * @throws IOException リポジトリから読み込めない場合
+	 */
 	@Test
-	public void testReadAll() throws IOException {
+	public void test01_リポジトリからすべてのエンティティが読み込めること() throws IOException {
 		ModelReadStrategyInJSON modelReaderProperty = new ModelReadStrategyInJSON(new File("bin/config.json"));
 		Collection<ClassMetaModel> classMetaModels = modelReaderProperty.readAll();
 		

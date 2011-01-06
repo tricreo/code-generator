@@ -34,8 +34,13 @@ import org.junit.Test;
  */
 public class ModelReadStrategyInPropertiesTest {
 	
+	/**
+	 * リポジトリからすべてのエンティティが読み込めること
+	 * 
+	 * @throws IOException リポジトリから読み込めない場合
+	 */
 	@Test
-	public void testReadAll() throws IOException, ClassNotFoundException {
+	public void test01_リポジトリからすべてのエンティティが読み込めること() throws IOException {
 		ModelReadStrategyInProperties modelReaderProperty =
 				new ModelReadStrategyInProperties(new File("bin/config.properties"));
 		Collection<ClassMetaModel> classMetaModels = modelReaderProperty.readAll();

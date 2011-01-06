@@ -17,17 +17,20 @@ package jp.tricreo.codegenerator;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import jp.tricreo.codegenerator.Application;
 
 import org.junit.Test;
 
 /**
  * {@link Application}のためのテスト
+ * <p>パラメータの組み合わせをテストします。</p>
  */
 public class ApplicationTest {
 	
+	/**
+	 * runByByPropertiesAndFreeMarker
+	 */
 	@Test
-	public void testRunByByPropertiesAndFreeMarker() {
+	public void test01_runByByPropertiesAndFreeMarker() {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.properties",
@@ -39,8 +42,11 @@ public class ApplicationTest {
 		assertThat(result, is(0));
 	}
 	
+	/**
+	 * runByJsonAndFreeMarker
+	 */
 	@Test
-	public void testRunByJsonAndFreeMarker() {
+	public void test02_runByJsonAndFreeMarker() {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.json",
@@ -52,26 +58,32 @@ public class ApplicationTest {
 		assertThat(result, is(0));
 	}
 	
+	/**
+	 * runByPropertiesAndVelocity
+	 */
 	@Test
-	public void testRunByJsonAndVelocity() {
+	public void test03_runByPropertiesAndVelocity() {
 		int result = new Application().run(new String[] {
 			"-c",
-			"bin/config.json",
+			"bin/config.properties",
 			"-o",
-			"src/generated-json-velocity/java",
+			"src/generated-properties-velocity/java",
 			"-e",
 			"V"
 		});
 		assertThat(result, is(0));
 	}
 	
+	/**
+	 * runByJsonAndVelocity
+	 */
 	@Test
-	public void testRunByPropertiesAndVelocity() {
+	public void test04_runByJsonAndVelocity() {
 		int result = new Application().run(new String[] {
 			"-c",
-			"bin/config.properties",
+			"bin/config.json",
 			"-o",
-			"src/generated-properties-velocity/java",
+			"src/generated-json-velocity/java",
 			"-e",
 			"V"
 		});

@@ -24,8 +24,6 @@ import java.util.HashSet;
 
 import jp.tricreo.codegenerator.CodeGenContext;
 import jp.tricreo.codegenerator.model.ClassMetaModel;
-import jp.tricreo.codegenerator.service.CodeGenService;
-import jp.tricreo.codegenerator.service.CodeGenStrategy;
 import jp.tricreo.codegenerator.service.impl.CodeGenException;
 
 import org.junit.Test;
@@ -37,8 +35,13 @@ import org.junit.Test;
  */
 public class CodeGenServiceTest {
 	
+	/**
+	 * コード生成ができること
+	 * 
+	 * @throws CodeGenException コード生成に失敗した場合
+	 */
 	@Test
-	public void testMerge() throws CodeGenException {
+	public void test01_コード生成ができること() throws CodeGenException {
 		
 		CodeGenStrategy codeGenStrategy = mock(CodeGenStrategy.class);
 		CodeGenContext context = mock(CodeGenContext.class);
