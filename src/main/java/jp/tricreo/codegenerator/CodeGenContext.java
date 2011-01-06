@@ -29,7 +29,9 @@ import jp.tricreo.codegenerator.model.ClassMetaModel;
 public interface CodeGenContext {
 	
 	/**
-	 * {@link ClassMetaModel}の集合を取得する。 
+	 * {@link ClassMetaModel}の集合を取得する。
+	 * <p>返されるリストは複製であり、そのリストの状態を更新しても
+	 * {@link CodeGenContext}は影響を受けない。</p> 
 	 * 
 	 * @return {@link ClassMetaModel}の集合
 	 */

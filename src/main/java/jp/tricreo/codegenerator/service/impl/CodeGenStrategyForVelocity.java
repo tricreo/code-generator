@@ -41,6 +41,12 @@ public class CodeGenStrategyForVelocity extends AbstractCodeGenStrategy {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CodeGenStrategyForVelocity.class);
 	
+	private static final String TEMPLATE_FILENAME = "java.vm";
+	
+	private static final String TEMPLATE_FILE_ENCODING = "UTF-8";
+	
+	private static final String GENERATE_FILE_EXT = "java";
+	
 
 	@Override
 	public void generate(CodeGenContext context) throws CodeGenException {
@@ -50,22 +56,24 @@ public class CodeGenStrategyForVelocity extends AbstractCodeGenStrategy {
 		properties.setProperty("file.resource.loader.path", templateDirFile.getPath());
 		try {
 			Velocity.init(properties);
-			Template template = Velocity.getTemplate("java.vm", "UTF-8");
+			Template template = Velocity.getTemplate(TEMPLATE_FILENAME, TEMPLATE_FILE_ENCODING);
 			DisplayTool displayTool = new DisplayTool();
-			for (ClassMetaModel cm : context.getClassMetaModels()) {
+			for (ClassMetaModel classMetaModel : context.getClassMetaModels()) {
 				FileWriter fw = null;
 				try {
 					VelocityContext velocityContext = new VelocityContext();
 					velocityContext.put("displayTool", displayTool);
-					velocityContext.put("classMetaModel", cm);
+					velocityContext.put("classMetaModel", classMetaModel);
 					
-					File exportClassDir = getExportClassDir(context, cm);
+					File exportClassDir = getExportClassDir(context, classMetaModel);
 					exportClassDir.mkdirs();
 					
-					fw = new FileWriter(new File(exportClassDir, cm.getClassName() + ".java"));
+					fw =
+							new FileWriter(new File(exportClassDir, classMetaModel.getClassName() + "."
+									+ GENERATE_FILE_EXT));
 					template.merge(velocityContext, fw);
 					fw.flush();
-					LOGGER.info("ソースコードを生成しました。 : {}", cm.getClassName());
+					LOGGER.info("ソースコードを生成しました。 : {}", classMetaModel.getClassName());
 				} catch (Exception e) {
 					throw new CodeGenException(e);
 				} finally {

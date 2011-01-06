@@ -42,33 +42,48 @@ public class CodeGenStrategyForFreeMarker extends AbstractCodeGenStrategy {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(CodeGenStrategyForFreeMarker.class);
 	
+	private static final String TEMPLATE_FILENAME = "java.ftl";
+	
+	private static final String GENERATE_FILE_EXT = "java";
+	
 
 	@Override
-	public void generate(CodeGenContext context) throws CodeGenException {
-		Validate.notNull(context);
-		File templateDirFile = context.getTemplateDir();
+	public void generate(CodeGenContext codeGenContext) throws CodeGenException {
+		Validate.notNull(codeGenContext);
+		File templateDirFile = codeGenContext.getTemplateDir();
 		Configuration cfg = new Configuration();
 		try {
 			cfg.setDirectoryForTemplateLoading(templateDirFile);
-			Template template = cfg.getTemplate("java.ftl");
+			Template template = cfg.getTemplate(TEMPLATE_FILENAME);
 			
-			for (ClassMetaModel cm : context.getClassMetaModels()) {
+			for (ClassMetaModel classMetaModel : codeGenContext.getClassMetaModels()) {
 				FileWriter fw = null;
 				try {
 					Map<String, Object> rootMap = new HashMap<String, Object>();
-					rootMap.put("classMetaModel", cm);
+					rootMap.put("classMetaModel", classMetaModel);
 					
-					File exportClassDir = getExportClassDir(context, cm);
+					File exportClassDir = getExportClassDir(codeGenContext, classMetaModel);
 					exportClassDir.mkdirs();
 					
-					fw = new FileWriter(new File(exportClassDir, cm.getClassName() + ".java"));
+					fw =
+							new FileWriter(new File(exportClassDir, classMetaModel.getClassName() + "."
+									+ GENERATE_FILE_EXT));
 					template.process(rootMap, fw);
 					fw.flush();
-					LOGGER.info("ソースコードを生成しました。 : {}", cm.getClassName());
+					LOGGER.info("ソースコードを生成しました。 : {}", classMetaModel.getClassName());
 				} catch (TemplateException ex) {
 					throw new CodeGenException(ex);
 				} finally {
 					IOUtils.closeQuietly(fw);
+					/* IOUtils#closeQuietlyは下記と同じことを行うメソッド。
+					try {
+					    if (fw != null) {
+					        fw.close();
+					    }
+					} catch (IOException ioe) {
+					    // ignore
+					}
+					*/
 				}
 			}
 		} catch (IOException ex) {
