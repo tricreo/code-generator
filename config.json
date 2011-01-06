@@ -1,6 +1,6 @@
 [
 	{
-		"className": "Depertment",
+		"className": "Department",
 		"packageName": "jp.nikkeibp.software.sample.beans",
 		"fields": [
 			{
@@ -14,8 +14,8 @@
 		"packageName": "jp.nikkeibp.software.sample.beans",
 		"fields": [
 			{
-				"fieldName": "depertment",
-				"typeName": "jp.nikkeibp.software.sample.beans.Depertment"
+				"fieldName": "department",
+				"typeName": "jp.nikkeibp.software.sample.beans.Department"
 			},
 			{
 				"fieldName": "name",
