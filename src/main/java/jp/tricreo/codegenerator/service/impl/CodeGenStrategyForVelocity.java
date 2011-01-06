@@ -59,10 +59,10 @@ public class CodeGenStrategyForVelocity extends AbstractCodeGenStrategy {
 					velocityContext.put("displayTool", displayTool);
 					velocityContext.put("classMetaModel", cm);
 					
-					File actualExportDir = getExportClassDir(context, cm);
-					actualExportDir.mkdirs();
+					File exportClassDir = getExportClassDir(context, cm);
+					exportClassDir.mkdirs();
 					
-					fw = new FileWriter(new File(actualExportDir, cm.getClassName() + ".java"));
+					fw = new FileWriter(new File(exportClassDir, cm.getClassName() + ".java"));
 					template.merge(velocityContext, fw);
 					fw.flush();
 					LOGGER.info("ソースコードを生成しました。 : {}", cm.getClassName());

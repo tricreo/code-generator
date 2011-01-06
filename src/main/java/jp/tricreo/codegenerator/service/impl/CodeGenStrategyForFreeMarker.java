@@ -58,10 +58,10 @@ public class CodeGenStrategyForFreeMarker extends AbstractCodeGenStrategy {
 					Map<String, Object> rootMap = new HashMap<String, Object>();
 					rootMap.put("classMetaModel", cm);
 					
-					File actualExportDir = getExportClassDir(context, cm);
-					actualExportDir.mkdirs();
+					File exportClassDir = getExportClassDir(context, cm);
+					exportClassDir.mkdirs();
 					
-					fw = new FileWriter(new File(actualExportDir, cm.getClassName() + ".java"));
+					fw = new FileWriter(new File(exportClassDir, cm.getClassName() + ".java"));
 					template.process(rootMap, fw);
 					fw.flush();
 					LOGGER.info("ソースコードを生成しました。 : {}", cm.getClassName());
