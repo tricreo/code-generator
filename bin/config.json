@@ -23,7 +23,7 @@
 			},
 			{
 				"fieldName": "manager",
-				"typeName": "java.lang.Boolean"
+				"typeName": "boolean"
 			}
 		]
 	}
