@@ -55,7 +55,7 @@ public class Application implements CodeGenContext {
 	}
 	
 
-	private final Collection<ClassMetaModel> classMetaModels = new HashSet<ClassMetaModel>();
+	private Collection<ClassMetaModel> classMetaModels = new HashSet<ClassMetaModel>();
 	
 	private File configFile = new File("config.properties");
 	
@@ -151,7 +151,7 @@ public class Application implements CodeGenContext {
 		try {
 			if (parseCommandLine(args)) {
 				ModelReader modelReader = new ModelReader(getModelReadFormatType(configFile), configFile);
-				getClassMetaModels().addAll(modelReader.readAll());
+				classMetaModels.addAll(modelReader.readAll());
 				new CodeGenService(templateEngineType).generate(this);
 			}
 			return 0;
