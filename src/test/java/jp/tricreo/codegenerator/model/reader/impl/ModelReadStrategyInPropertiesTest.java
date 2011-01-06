@@ -42,6 +42,9 @@ public class ModelReadStrategyInPropertiesTest {
 		
 		assertThat(classMetaModels, is(notNullValue()));
 		assertThat(classMetaModels.size(), is(2));
+		for (ClassMetaModel cm : classMetaModels) {
+			System.out.println(cm.toString());
+		}
 	}
 	
 }
