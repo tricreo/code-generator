@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.Collection;
 
 import jp.tricreo.codegenerator.model.ClassMetaModel;
-import jp.tricreo.codegenerator.model.reader.impl.ModelReadStrategyInProperties;
 
 import org.junit.Test;
 
@@ -38,7 +37,7 @@ public class ModelReadStrategyInPropertiesTest {
 	@Test
 	public void testReadAll() throws IOException, ClassNotFoundException {
 		ModelReadStrategyInProperties modelReaderProperty =
-				new ModelReadStrategyInProperties(new File("config.properties"));
+				new ModelReadStrategyInProperties(new File("bin/config.properties"));
 		Collection<ClassMetaModel> classMetaModels = modelReaderProperty.readAll();
 		
 		assertThat(classMetaModels, is(notNullValue()));

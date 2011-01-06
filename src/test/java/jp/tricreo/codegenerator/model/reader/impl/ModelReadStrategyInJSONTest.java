@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.Collection;
 
 import jp.tricreo.codegenerator.model.ClassMetaModel;
-import jp.tricreo.codegenerator.model.reader.impl.ModelReadStrategyInJSON;
 
 import org.junit.Test;
 
@@ -37,11 +36,15 @@ public class ModelReadStrategyInJSONTest {
 	
 	@Test
 	public void testReadAll() throws IOException {
-		ModelReadStrategyInJSON modelReaderProperty = new ModelReadStrategyInJSON(new File("config.json"));
+		ModelReadStrategyInJSON modelReaderProperty = new ModelReadStrategyInJSON(new File("bin/config.json"));
 		Collection<ClassMetaModel> classMetaModels = modelReaderProperty.readAll();
 		
 		assertThat(classMetaModels, is(notNullValue()));
 		assertThat(classMetaModels.size(), is(2));
+		for (ClassMetaModel cm : classMetaModels) {
+			System.out.println(cm.toString());
+		}
+		
 	}
 	
 }
