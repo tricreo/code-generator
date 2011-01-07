@@ -8,7 +8,14 @@ public class ${classMetaModel.className} {
 	public void set$displayTool.capitalize(${f.fieldName})(${f.typeName} ${f.fieldName}){
 		this.${f.fieldName} = ${f.fieldName};
 	}
- 	public ${f.typeName} get$displayTool.capitalize(${f.fieldName})(){
+#if (${f.typeName} == "boolean")
+#set($getter = "is")
+#elseif (${f.typeName} == "java.lang.Boolean")
+#set($getter = "is")
+#else
+#set($getter = "get")
+#end
+ 	public ${f.typeName} ${getter}$displayTool.capitalize(${f.fieldName})(){
 		return ${f.fieldName};
 	}  	    
 #end

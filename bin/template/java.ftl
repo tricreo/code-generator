@@ -8,8 +8,15 @@ public class ${classMetaModel.className} {
 	public void set${f.fieldName?cap_first}(${f.typeName} ${f.fieldName}){
 		this.${f.fieldName} = ${f.fieldName};
 	}
- 	public ${f.typeName} get${f.fieldName?cap_first}(){
+<#if f.typeName == "boolean">
+<#assign getter = "is"/>
+<#elseif f.typeName == "java.lang.Boolean">
+<#assign getter = "is"/>
+<#else>
+<#assign getter = "get"/>
+</#if>  	    
+ 	public ${f.typeName} ${getter}${f.fieldName?cap_first}(){
 		return ${f.fieldName};
-	}  	    
+	}
 </#list>
 }
