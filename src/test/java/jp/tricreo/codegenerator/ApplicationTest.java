@@ -34,6 +34,8 @@ public class ApplicationTest {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.properties",
+			"-t",
+			"bin/template",
 			"-o",
 			"src/generated-properties-freemarker/java",
 			"-e",
@@ -50,6 +52,8 @@ public class ApplicationTest {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.json",
+			"-t",
+			"bin/template",
 			"-o",
 			"src/generated-json-freemarker/java",
 			"-e",
@@ -66,6 +70,8 @@ public class ApplicationTest {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.properties",
+			"-t",
+			"bin/template",
 			"-o",
 			"src/generated-properties-velocity/java",
 			"-e",
@@ -82,6 +88,8 @@ public class ApplicationTest {
 		int result = new Application().run(new String[] {
 			"-c",
 			"bin/config.json",
+			"-t",
+			"bin/template",
 			"-o",
 			"src/generated-json-velocity/java",
 			"-e",
